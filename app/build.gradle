@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -59,4 +62,29 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+
+    implementation 'androidx.compose.material3:material3:1.0.0-alpha14'
+
+    //navegacion
+    implementation "androidx.navigation:navigation-compose:2.5.0"
+
+    //viewmodel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0"
+
+    //room
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
+    // To use Coroutine features, you must add `ktx` artifact from Room as a dependency
+    implementation "androidx.room:room-ktx:$room_version"
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
+
+    //hilt
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+
+    implementation("io.coil-kt:coil-compose:2.2.1")
 }
