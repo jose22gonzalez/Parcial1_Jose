@@ -7,7 +7,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.IconButton
 import androidx.compose.material.icons.outlined.Clear
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.*
+import androidx.compose.material.*
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -16,7 +17,6 @@ import androidx.navigation.NavHostController
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PantallalistScreen(
     onClick: () ->Unit,
@@ -24,6 +24,7 @@ fun PantallalistScreen(
     Scaffold (
         topBar = {CenterAlignedTopAppBar(title = {Text("Pantalla List")})
         },
+
         floatingActionButton = {
             FloatingActionButton(onClick = onClick) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add a Examen")
@@ -62,7 +63,7 @@ fun PantallaRow() {
     ) {
         Text(
             text = "Algo",
-            style = MaterialTheme.typography.titleLarge
+            style = MaterialTheme.typography.h1
         )
 
         Row(
