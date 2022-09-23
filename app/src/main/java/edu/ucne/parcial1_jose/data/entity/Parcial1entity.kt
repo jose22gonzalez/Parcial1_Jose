@@ -10,5 +10,6 @@ data class Examenentity (
     @PrimaryKey(autoGenerate = true)
     val parcialId: Int = 0,
     val descripcion: String = "",
+    val descripcion2: String,
     val nota: Double
 )
