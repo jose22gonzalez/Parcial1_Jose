@@ -13,13 +13,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import dagger.hilt.android.lifecycle.HiltViewModel
+import edu.ucne.parcial1_jose.ui.Pantalla1Screen.PantallaList.PantallaListViewModel
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun PantallalistScreen(
     onClick: () ->Unit,
+    viewModel: PantallaListViewModel = hiltViewModel()
 ) {
     Scaffold (
         topBar = {CenterAlignedTopAppBar(title = {Text("Pantalla List")})

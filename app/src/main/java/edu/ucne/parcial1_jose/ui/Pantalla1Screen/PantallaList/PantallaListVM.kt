@@ -17,7 +17,7 @@ data class PantallaListUIState(
 )
 
 @HiltViewModel
-class NombreListViewModel @Inject constructor(
+class PantallaListViewModel @Inject constructor(
 
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(PantallaListUIState())
