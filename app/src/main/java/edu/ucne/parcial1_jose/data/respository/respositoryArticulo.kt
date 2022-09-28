@@ -1,28 +1,29 @@
 package edu.ucne.parcial1_jose.data.respository
 
 import androidx.room.Dao
+import edu.ucne.parcial1_jose.data.ExamenDatabase
 import edu.ucne.parcial1_jose.data.dao.ArticuloDao
 import edu.ucne.parcial1_jose.data.entity.Articuloentity
 import javax.inject.Inject
 
 
-@Dao
+
 class Articulorespository @Inject constructor(
-    val db: ArticuloDao
+    val db  : ExamenDatabase
 ){
     suspend fun Insertandoarticulo(articuloentity: Articuloentity){
-        db.InsertaArticulo(articuloentity)
+     db.ArticuloDao.InsertaArticulo(articuloentity)
     }
 
     suspend fun Actualizandoarticulo(articuloentity: Articuloentity){
-        db.ActualizarArticulo(articuloentity)
+        db.ArticuloDao.ActualizarArticulo(articuloentity)
     }
 
     suspend fun Elimandoarticulo(articuloentity: Articuloentity){
-        db.EliminarArticulo(articuloentity)
+       db.ArticuloDao.EliminarArticulo(articuloentity)
     }
 
-    fun listArticulo() = db.ListArticulo()
+    fun listArticulo() = db.ArticuloDao.ListArticulo()
 
-    fun findArticulo(id: Int) = db.FindArticulo(id)
+    fun findArticulo(id: Int) = db.ArticuloDao.FindArticulo(id)
 }
