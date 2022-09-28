@@ -5,11 +5,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Dao
-@Entity(tableName = "Parcial1")
-data class Examenentity (
+@Entity(tableName = "Articulos")
+data class Articuloentity (
     @PrimaryKey(autoGenerate = true)
-    val parcialId: Int = 0,
-    val descripcion: String = "",
-    val descripcion2: String,
-    val nota: Double
+    val ArticuloId: Int = 0,
+    val Descripcion: String = "",
+    val Marca: String,
+    val Existencia: Int
 )
