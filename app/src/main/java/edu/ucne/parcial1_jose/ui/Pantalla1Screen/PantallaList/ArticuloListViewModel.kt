@@ -8,30 +8,32 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import edu.ucne.parcial1_jose.data.entity.Examenentity
-
+import edu.ucne.parcial1_jose.data.entity.Articuloentity
+import edu.ucne.parcial1_jose.data.respository.Articulorespository
 
 
 data class PantallaListUIState(
-    val examen: List<Examenentity> = emptyList(),
+    val articulo: List<Articuloentity> = emptyList(),
 )
 
 @HiltViewModel
-class PantallaListViewModel @Inject constructor(
-
+class ArticuloListViewModel @Inject constructor(
+    val respositorio: Articulorespository
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(PantallaListUIState())
     val uiState: StateFlow<PantallaListUIState> = _uiState.asStateFlow()
 
     init {
         viewModelScope.launch {
-
+//            respository.listArticulo().collect{list ->
+//
+//            }
         }
     }
 
-    fun Delete(examenentity: Examenentity) {
+    fun Delete(articuloentity: Articuloentity) {
         viewModelScope.launch(Dispatchers.IO) {
-
+            respositorio.Elimandoarticulo(articuloentity)
         }
     }
 }
