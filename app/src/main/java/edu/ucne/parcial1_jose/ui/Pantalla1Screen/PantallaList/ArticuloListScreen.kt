@@ -8,39 +8,46 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.icons.outlined.Clear
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.*
-import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material.icons.filled.Create
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import dagger.hilt.android.lifecycle.HiltViewModel
-import edu.ucne.parcial1_jose.ui.Pantalla1Screen.PantallaList.PantallaListViewModel
+import edu.ucne.parcial1_jose.ui.Pantalla1Screen.PantallaList.ArticuloListViewModel
 
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+
 @Composable
-fun PantallalistScreen(
+fun ArticuloListScreen(
     onClick: () ->Unit,
-    viewModel: PantallaListViewModel = hiltViewModel()
+    viewModel: ArticuloListViewModel = hiltViewModel()
 ) {
     Scaffold (
-        topBar = {CenterAlignedTopAppBar(title = {Text("Pantalla List")})
-        },
-
+        topBar = { Text(
+            text = "Consulta Articulos",
+            style = MaterialTheme.typography.h5
+        )},
         floatingActionButton = {
             FloatingActionButton(onClick = onClick) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add a Examen")
             }
-
         },
 
         ) {
 
+        val uiState by viewModel.uiState.collectAsState()
+
         Column(modifier = Modifier
             .fillMaxWidth()
             .padding(it)) {
+            PantallaList(
+
+            )
 
         }
     }
@@ -81,7 +88,7 @@ fun PantallaRow() {
             IconButton(
                 modifier = Modifier.padding(0.dp),
                 onClick = {}) {
-                Icon(imageVector = Icons.Outlined.Clear, contentDescription = "Clear",
+                Icon(imageVector = Icons.Outlined.Clear, contentDescription = "Editar",
                     tint = Color.Red)
             }
         }
@@ -94,3 +101,30 @@ fun PantallaRow() {
         )
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//isDigitOnly
