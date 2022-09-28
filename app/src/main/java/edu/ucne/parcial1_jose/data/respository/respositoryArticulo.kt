@@ -21,4 +21,8 @@ class Articulorespository @Inject constructor(
     suspend fun Elimandoarticulo(articuloentity: Articuloentity){
         db.EliminarArticulo(articuloentity)
     }
+
+    fun listArticulo() = db.ListArticulo()
+
+    fun findArticulo(id: Int) = db.FindArticulo(id)
 }
