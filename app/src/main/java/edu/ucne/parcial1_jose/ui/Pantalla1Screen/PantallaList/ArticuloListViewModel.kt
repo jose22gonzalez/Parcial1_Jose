@@ -26,7 +26,9 @@ class ArticuloListViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             respositorio.listArticulo().collect{list ->
-
+                _uiState.update {
+                    it.copy(articulo = list)
+                }
             }
         }
     }
