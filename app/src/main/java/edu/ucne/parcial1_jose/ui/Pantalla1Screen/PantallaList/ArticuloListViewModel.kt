@@ -25,9 +25,9 @@ class ArticuloListViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-//            respository.listArticulo().collect{list ->
-//
-//            }
+            respositorio.listArticulo().collect{list ->
+
+            }
         }
     }
 
