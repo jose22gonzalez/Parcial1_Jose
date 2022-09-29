@@ -1,6 +1,5 @@
 package edu.ucne.parcial1_jose.ui.Pantalla1Screen.PantallaList
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
@@ -8,7 +7,6 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.icons.outlined.Clear
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.*
-import androidx.compose.material.icons.filled.Create
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -16,10 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavHostController
-import dagger.hilt.android.lifecycle.HiltViewModel
-import edu.ucne.parcial1_jose.ui.Pantalla1Screen.PantallaList.ArticuloListViewModel
-
+import edu.ucne.parcial1_jose.data.entity.Articuloentity
 
 
 @Composable
@@ -45,7 +40,8 @@ fun ArticuloListScreen(
         Column(modifier = Modifier
             .fillMaxWidth()
             .padding(it)) {
-            PantallaList(
+            ArticuloList(
+                Articuloentity = uiState.articulo,
 
             )
 
@@ -56,25 +52,37 @@ fun ArticuloListScreen(
 }
 
 @Composable
-fun PantallaList(
+fun ArticuloList(
+    Articuloentity: List<Articuloentity>,
+    modifier: Modifier = Modifier,
+    viewModel: ArticuloListViewModel = hiltViewModel(),
 
-    modifier: Modifier = Modifier
-) {
+    ) {
     LazyColumn(modifier = modifier) {
 
     }
 }
 
 @Composable
-fun PantallaRow() {
+fun ArticuloRow() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(4.dp)
     ) {
         Text(
-            text = "Algo",
-            style = MaterialTheme.typography.h1
+            text = "Descripcion ",
+            style = MaterialTheme.typography.subtitle1
+        )
+
+        Text(
+            text = "Marca",
+            style = MaterialTheme.typography.subtitle1
+        )
+
+        Text(
+            text = "Existencia",
+            style = MaterialTheme.typography.subtitle1
         )
 
         Row(
@@ -82,13 +90,11 @@ fun PantallaRow() {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
 
-            Text(
-                text = "Algo"
-            )
+
             IconButton(
                 modifier = Modifier.padding(0.dp),
-                onClick = {}) {
-                Icon(imageVector = Icons.Outlined.Clear, contentDescription = "Editar",
+                onClick = { }) {
+                Icon(imageVector = Icons.Outlined.Clear, contentDescription = "Eliminar",
                     tint = Color.Red)
             }
         }
