@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Warning
@@ -21,7 +22,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.material.TextField
-
+import androidx.core.text.isDigitsOnly
 
 
 @Composable
@@ -29,6 +30,15 @@ fun PantallaScreen(
     onNavigateBack: () -> Unit,
     viewModel: ArticuloScreenViewModel = hiltViewModel()
 ) {
+
+    fun Validar() {
+        if(viewModel.Descripcion.isBlank() || viewModel.Marca.isBlank() || viewModel.Marca.isDigitsOnly()){
+
+        }else{
+            viewModel.save()
+            onNavigateBack()
+        }
+    }
 
     Scaffold (
         topBar = { Text(
@@ -59,7 +69,11 @@ fun PantallaScreen(
                 modifier = Modifier.fillMaxWidth().padding(5.dp),
                 value = viewModel.Existencia,
                 label = { Text(text = "Existencia")},
-                onValueChange = {viewModel.Existencia = it}
+                onValueChange = {viewModel.Existencia = it},
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Number
+                )
+
             )
 
 
@@ -69,8 +83,7 @@ fun PantallaScreen(
                     .padding(10.dp)
                 ,
                 onClick = {
-                    onNavigateBack()
-                    viewModel.save()
+                    Validar()
                 }) {
                 Text(text = "Add a Articulo")
             }
