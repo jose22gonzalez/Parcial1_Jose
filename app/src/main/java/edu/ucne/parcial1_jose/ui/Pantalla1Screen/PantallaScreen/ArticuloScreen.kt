@@ -21,24 +21,46 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.material.TextField
-import androidx.compose.material3.CenterAlignedTopAppBar
+
 
 
 @Composable
 fun PantallaScreen(
     onNavigateBack: () -> Unit,
+    viewModel: ArticuloScreenViewModel = hiltViewModel()
 ) {
 
     Scaffold (
-        topBar = {
-            CenterAlignedTopAppBar(title = { Text("Examen Entry")})
-        },
+        topBar = { Text(
+            text = "Registro Articulos",
+            style = MaterialTheme.typography.h5
+        )},
     ) {
         Column (
             modifier = Modifier
                 .fillMaxSize()
                 .padding(it)
         ) {
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth().padding(5.dp),
+                value = viewModel.Descripcion,
+                label = { Text(text = "Descripcion")},
+                onValueChange = {viewModel.Descripcion = it}
+            )
+
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth().padding(5.dp),
+                value = viewModel.Marca,
+                label = { Text(text = "Marca")},
+                onValueChange = {viewModel.Marca = it}
+            )
+
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth().padding(5.dp),
+                value = viewModel.Existencia,
+                label = { Text(text = "Existencia")},
+                onValueChange = {viewModel.Existencia = it}
+            )
 
 
             Button(
@@ -48,8 +70,9 @@ fun PantallaScreen(
                 ,
                 onClick = {
                     onNavigateBack()
+                    viewModel.save()
                 }) {
-                Text(text = "Add a Examen")
+                Text(text = "Add a Articulo")
             }
 
         }
