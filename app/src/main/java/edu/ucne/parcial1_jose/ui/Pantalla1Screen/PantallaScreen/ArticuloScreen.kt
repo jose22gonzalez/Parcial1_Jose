@@ -83,7 +83,8 @@ fun PantallaScreen(
                     .padding(10.dp)
                 ,
                 onClick = {
-                    Validar()
+                   viewModel.save()
+                    onNavigateBack()
                 }) {
                 Text(text = "Add a Articulo")
             }
