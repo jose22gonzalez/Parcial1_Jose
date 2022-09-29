@@ -2,6 +2,7 @@ package edu.ucne.parcial1_jose.ui.Pantalla1Screen.PantallaList
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.IconButton
 import androidx.compose.material.icons.outlined.Clear
@@ -41,8 +42,10 @@ fun ArticuloListScreen(
             .fillMaxWidth()
             .padding(it)) {
             ArticuloList(
-                Articuloentity = uiState.articulo,
-
+                articulo = uiState.articulo,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(it),
             )
 
         }
@@ -53,18 +56,20 @@ fun ArticuloListScreen(
 
 @Composable
 fun ArticuloList(
-    Articuloentity: List<Articuloentity>,
+    articulo: List<Articuloentity>,
     modifier: Modifier = Modifier,
     viewModel: ArticuloListViewModel = hiltViewModel(),
 
     ) {
     LazyColumn(modifier = modifier) {
-
+        items(articulo) { occupation ->
+            ArticuloRow(articulo, viewModel)
+        }
     }
 }
 
 @Composable
-fun ArticuloRow() {
+fun ArticuloRow(articulo: List<Articuloentity>, viewModel: ArticuloListViewModel) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
