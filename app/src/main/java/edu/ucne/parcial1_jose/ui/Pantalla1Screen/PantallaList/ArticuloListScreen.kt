@@ -62,31 +62,31 @@ fun ArticuloList(
 
     ) {
     LazyColumn(modifier = modifier) {
-        items(articulo) { occupation ->
-            ArticuloRow(articulo, viewModel)
+        items(articulo) { articul ->
+            ArticuloRow(articul, viewModel)
         }
     }
 }
 
 @Composable
-fun ArticuloRow(articulo: List<Articuloentity>, viewModel: ArticuloListViewModel) {
+fun ArticuloRow(articulo: Articuloentity, viewModel: ArticuloListViewModel) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(4.dp)
     ) {
         Text(
-            text = "Descripcion ",
+            text = "Descripcion ${articulo.Descripcion}",
             style = MaterialTheme.typography.subtitle1
         )
 
         Text(
-            text = "Marca",
+            text = "Marca ${articulo.Marca}",
             style = MaterialTheme.typography.subtitle1
         )
 
         Text(
-            text = "Existencia",
+            text = "Existencia ${articulo.Existencia}",
             style = MaterialTheme.typography.subtitle1
         )
 
