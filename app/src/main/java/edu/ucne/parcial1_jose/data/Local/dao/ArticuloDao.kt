@@ -1,7 +1,7 @@
-package edu.ucne.parcial1_jose.data.dao
+package edu.ucne.parcial1_jose.data.Local.dao
 
 import androidx.room.*
-import edu.ucne.parcial1_jose.data.entity.Articuloentity
+import edu.ucne.parcial1_jose.data.Local.entity.Articuloentity
 import kotlinx.coroutines.flow.Flow
 
 

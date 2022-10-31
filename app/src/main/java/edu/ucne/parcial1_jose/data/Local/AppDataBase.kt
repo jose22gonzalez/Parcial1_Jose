@@ -2,8 +2,8 @@ package edu.ucne.parcial1_jose.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import edu.ucne.parcial1_jose.data.dao.ArticuloDao
-import edu.ucne.parcial1_jose.data.entity.Articuloentity
+import edu.ucne.parcial1_jose.data.Local.dao.ArticuloDao
+import edu.ucne.parcial1_jose.data.Local.entity.Articuloentity
 
 
 @Database(

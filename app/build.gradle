@@ -87,4 +87,9 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
 
     implementation("io.coil-kt:coil-compose:2.2.1")
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    implementation "com.squareup.moshi:moshi-kotlin:1.13.0"
 }

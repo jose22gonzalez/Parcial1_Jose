@@ -1,4 +1,4 @@
-package edu.ucne.parcial1_jose.data.entity
+package edu.ucne.parcial1_jose.data.Local.entity
 
 import androidx.room.Dao
 import androidx.room.Entity

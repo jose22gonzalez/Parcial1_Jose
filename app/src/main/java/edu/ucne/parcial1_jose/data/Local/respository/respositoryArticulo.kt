@@ -1,9 +1,7 @@
-package edu.ucne.parcial1_jose.data.respository
+package edu.ucne.parcial1_jose.data.Local.respository
 
-import androidx.room.Dao
 import edu.ucne.parcial1_jose.data.ExamenDatabase
-import edu.ucne.parcial1_jose.data.dao.ArticuloDao
-import edu.ucne.parcial1_jose.data.entity.Articuloentity
+import edu.ucne.parcial1_jose.data.Local.entity.Articuloentity
 import javax.inject.Inject
 
 

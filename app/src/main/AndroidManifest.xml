@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="edu.ucne.parcial1_jose">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+        android:usesCleartextTraffic="true"
         android:name=".PantallaApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
